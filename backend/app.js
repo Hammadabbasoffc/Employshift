@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv"
 import cors from "cors"
 import { errorHandler } from "./src/core/middleware/errorHandler.js";
+import userRouter from "./src/modules/user/user.route.js";
 
 
 
@@ -14,6 +15,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 
+app.use('/api/v1/users', userRouter);
 
 app.get('/health', (req, res) => {
     res.status(200).json({

@@ -1,18 +1,11 @@
-import { asyncHandler } from "../../core/utils/async-handler.js";
-import User from "../../models/User.model.js";
 import { ApiError } from "../../core/utils/api-error.js";
 import { ApiResponse } from "../../core/utils/api-response.js";
+import { asyncHandler } from "../../core/utils/async-handler.js";
+import User from "../../models/User.model.js";
 import {
-    userForgotPasswordMailBody,
     userVerificationMailBody,
 } from "../../shared/constants/mail.constant.js";
 import { mailTransporter } from "../../shared/helpers/mail.helper.js";
-import {
-    storeAccessToken,
-    storeLoginCookies,
-} from "../../shared/helpers/cookies.helper.js";
-import crypto from "crypto";
-import S3UploadHelper from "../../shared/helpers/s3Upload.js";
 
 /* ======================================================
    📍 REGISTER USER
@@ -242,11 +235,12 @@ const registerUser = asyncHandler(async (req, res) => {
 // });
 
 export {
-    registerUser,
-    logInUser,
-    logoutUser,
-    verifyUserMail,
-    getAccessToken,
-    forgotPasswordMail,
-    resetPassword,
+    registerUser
 };
+
+//  logInUser,
+//     logoutUser,
+//     verifyUserMail,
+//     getAccessToken,
+//     forgotPasswordMail,
+//     resetPassword,
