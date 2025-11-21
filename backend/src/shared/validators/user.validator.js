@@ -7,7 +7,6 @@ const registerSchema = z.object({
         .trim(),
 
     userEmail: z
-        .string({ required_error: "Email is required" })
         .email("Invalid email")
         .transform((email) => email.toLowerCase().trim()),
 
@@ -19,9 +18,20 @@ const registerSchema = z.object({
         .enum(["job-applier", "company-owner", "admin"])
         .default("job-applier")
         .optional(),
-
-    userIsVerified: z.boolean().optional().default(false),
-    isActive: z.boolean().optional().default(true),
 });
 
-export { registerSchema };
+const loginSchema = z.object({
+
+
+    userEmail: z
+        .email("Invalid email")
+        .transform((email) => email.toLowerCase().trim()),
+
+    userPassword: z
+        .string({ required_error: "Password is required" })
+        .min(6, "Password must be at least 6 characters long"),
+
+
+});
+
+export { registerSchema, loginSchema };

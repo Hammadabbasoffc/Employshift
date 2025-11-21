@@ -4,9 +4,9 @@ const userVerificationMailBody = (name, url) => {
     const email = {
         body: {
             name: name,
-            intro: "Welcome to E-Commerce! We're very excited to have you on board.",
+            intro: "Welcome to EmployShift! We're very excited to have you on board.",
             action: {
-                instructions: "To get started with E-Commerce, please click here:",
+                instructions: "To get started with EmployShift, please click here:",
                 button: {
                     color: "#22BC66",
                     text: "Confirm your account",
